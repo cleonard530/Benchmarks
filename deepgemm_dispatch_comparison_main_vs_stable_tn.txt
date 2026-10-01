@@ -1,0 +1,13 @@
+Baseline:  /workspaces/vllm_container/vllm/deepgemm_dispatch_results_main_tn.json (NVIDIA H200 MIG 3g.71gb)
+Candidate: /workspaces/vllm_container/vllm/deepgemm_dispatch_results_stable_tn.json (NVIDIA H200 MIG 3g.71gb)
+Shape: M=128, N=4096, K=7168; calls/forward=200
+
+metric                                   baseline      candidate          delta    relative
+---------------------------------------------------------------------------------------------
+eager wall ms/forward                    4.683448       6.007174      +1.323727     +28.26%
+eager wall ms/call                       0.023417       0.030036      +0.006619     +28.26%
+CUDA graph ms/forward                    4.629644       4.659499      +0.029856      +0.64%
+CUDA graph ms/call                       0.023148       0.023297      +0.000149      +0.64%
+eager minus graph us/call                0.269020       6.738375      +6.469355   +2404.79%
+---------------------------------------------------------------------------------------------
+Negative delta and relative values mean the candidate is faster.

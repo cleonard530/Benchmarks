@@ -1,0 +1,37 @@
+Baseline:  /workspaces/vllm_container/DeepGEMM/kernel_benchmark_results_main.json (NVIDIA H200 MIG 3g.71gb)
+Candidate: /workspaces/vllm_container/DeepGEMM/kernel_benchmark_results_stable.json (NVIDIA H200 MIG 3g.71gb)
+
+kernel and shape                                                   baseline wall ms/call candidate wall ms/call    delta ms   relative
+------------------------------------------------------------------------------------------------------------------------------------------
+batched_symm (576x5120x576 x16)                                                 0.168779               0.168987   +0.000208     +0.12%
+batched_syrk (576x576x5120 x16)                                                 0.150323               0.149575   -0.000748     -0.50%
+bf16_gemm_nn (128x4096x7168)                                                    0.033406               0.033421   +0.000014     +0.04%
+bf16_gemm_nt (128x4096x7168)                                                    0.033296               0.033109   -0.000187     -0.56%
+bf16_gemm_tn (128x4096x7168)                                                    0.033008               0.032587   -0.000421     -1.27%
+bf16_gemm_tt (128x4096x7168)                                                    0.033056               0.032977   -0.000079     -0.24%
+cublaslt_gemm_nn (128x4096x7168)                                                0.033417               0.033394   -0.000023     -0.07%
+cublaslt_gemm_nt (128x4096x7168)                                                0.033683               0.033433   -0.000250     -0.74%
+cublaslt_gemm_tn (128x4096x7168)                                                0.033015               0.032534   -0.000480     -1.45%
+cublaslt_gemm_tt (128x4096x7168)                                                0.033033               0.032957   -0.000076     -0.23%
+fp8_fp4_gemm_nn (128x4096x7168)                                                 0.027455               0.031249   +0.003795    +13.82%
+fp8_fp4_gemm_nt (128x4096x7168)                                                 0.027190               0.029886   +0.002696     +9.92%
+fp8_fp4_gemm_tn (128x4096x7168)                                                 0.028339               0.033678   +0.005339    +18.84%
+fp8_fp4_gemm_tt (128x4096x7168)                                                 0.028041               0.030935   +0.002894    +10.32%
+k_grouped_bf16_gemm_tn_contiguous (768x2048x256 x8)                             0.084181               0.084764   +0.000584     +0.69%
+k_grouped_fp8_gemm_nt_contiguous (768x2048x256 x8)                              0.089804               0.089371   -0.000433     -0.48%
+m_grouped_bf16_gemm_nn_contiguous (192x6144x7168 x32)                           1.824655               1.824953   +0.000298     +0.02%
+m_grouped_bf16_gemm_nt_contiguous (192x6144x7168 x32)                           1.840101               1.840035   -0.000066     -0.00%
+m_grouped_bf16_gemm_nt_masked (192x6144x7168 x32)                               1.793601               1.794388   +0.000788     +0.04%
+m_grouped_fp8_fp4_gemm_nn_contiguous (192x6144x7168 x32)                        2.183409               2.179304   -0.004105     -0.19%
+m_grouped_fp8_fp4_gemm_nt_contiguous (192x6144x7168 x32)                        2.179205               2.180404   +0.001199     +0.06%
+m_grouped_fp8_fp4_gemm_nt_masked (192x6144x7168 x32)                            2.127866               2.134283   +0.006416     +0.30%
+------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL (one call per compared case)                                             12.818862              12.836226   +0.017364     +0.14%
+
+Compared 22 matching passed cases.
+Negative delta and relative values mean the candidate is faster.
+
+Not compared:
+  - cublaslt_nvfp4_gemm_nt (128x4096x7168): status baseline=skipped candidate=skipped
+  - k_grouped_fp4_gemm_nt_contiguous (768x2048x256 x8): status baseline=skipped candidate=skipped
+  - k_grouped_fp8_gemm_tn_contiguous (768x2048x256 x8): status baseline=skipped candidate=skipped
