@@ -4,10 +4,9 @@ Shape: M=128, N=4096, K=7168; calls/forward=200
 
 metric                                   baseline      candidate          delta    relative
 ---------------------------------------------------------------------------------------------
-eager wall ms/forward                    4.683448       6.007174      +1.323727     +28.26%
-eager wall ms/call                       0.023417       0.030036      +0.006619     +28.26%
-CUDA graph ms/forward                    4.629644       4.659499      +0.029856      +0.64%
-CUDA graph ms/call                       0.023148       0.023297      +0.000149      +0.64%
-eager minus graph us/call                0.269020       6.738375      +6.469355   +2404.79%
+eager wall ms/forward                    4.706380       6.098609      +1.392229     +29.58%
+eager wall ms/call                       0.023532       0.030493      +0.006961     +29.58%
+CUDA graph ms/forward                    4.666609       4.609351      -0.057258      -1.23%
+CUDA graph ms/call                       0.023333       0.023047      -0.000286      -1.23%
 ---------------------------------------------------------------------------------------------
 Negative delta and relative values mean the candidate is faster.

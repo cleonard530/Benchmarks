@@ -1,13 +1,12 @@
-Baseline:  /workspaces/vllm_container/vllm/deepgemm_dispatch_results_main.json (binding_file: _C.cpython-312-x86_64-linux-gnu.so)
-Candidate: /workspaces/vllm_container/vllm/deepgemm_dispatch_results_stable.json (binding_file: _C.py)
+Baseline:  /workspaces/vllm_container/vllm/deepgemm_dispatch_results_main_nt.json (NVIDIA H200 MIG 3g.71gb)
+Candidate: /workspaces/vllm_container/vllm/deepgemm_dispatch_results_stable_nt.json (NVIDIA H200 MIG 3g.71gb)
 Shape: M=128, N=4096, K=7168; calls/forward=200
 
 metric                                   baseline      candidate          delta    relative
 ---------------------------------------------------------------------------------------------
-eager wall ms/forward                    4.500463       4.711537      +0.211074      +4.69%
-eager wall ms/call                       0.022502       0.023558      +0.001055      +4.69%
-CUDA graph ms/forward                    4.466314       4.466309      -0.000005      -0.00%
-CUDA graph ms/call                       0.022332       0.022332      -0.000000      -0.00%
-eager minus graph us/call                0.170746       1.226139      +1.055393    +618.11%
+eager wall ms/forward                    4.522329       4.543323      +0.020993      +0.46%
+eager wall ms/call                       0.022612       0.022717      +0.000105      +0.46%
+CUDA graph ms/forward                    4.467207       4.471550      +0.004343      +0.10%
+CUDA graph ms/call                       0.022336       0.022358      +0.000022      +0.10%
 ---------------------------------------------------------------------------------------------
 Negative delta and relative values mean the candidate is faster.
